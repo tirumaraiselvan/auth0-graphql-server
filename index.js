@@ -54,6 +54,7 @@ const getUserFromAuth0Email = async (email) => {
 
 const typeDefs = `
   type Query {
+    hello: String
     auth0 (auth0_id: String, email: String): Auth0Info
   }
 
@@ -72,6 +73,8 @@ const typeDefs = `
 
 const resolvers = {
   Query: {
+    hello: () => "world",
+
     auth0: async (_, args) => {
       let response;
       try {
